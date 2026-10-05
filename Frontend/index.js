@@ -126,7 +126,7 @@ voiceButtons.forEach(btn => {
 // Dynamic API URL for Local & Production Deployment
 const BACKEND_URL = (window.location.hostname === '127.0.0.1' || window.location.hostname === 'localhost')
   ? "http://127.0.0.1:5000"
-  : (window.BACKEND_API_URL || "");
+  : (window.BACKEND_API_URL || "https://ai-travel-guide-interactive-multilingual.onrender.com");
 
 const GENERATE_AUDIO_GUIDE_API_URL = `${BACKEND_URL}/generate-audio-guide`;
 
