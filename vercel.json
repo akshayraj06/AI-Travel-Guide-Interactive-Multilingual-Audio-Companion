@@ -16,8 +16,17 @@
       "dest": "/api/index.py"
     },
     {
+      "src": "/api/(.*)",
+      "dest": "/api/index.py"
+    },
+    {
+      "src": "/",
+      "dest": "/Frontend/index.html"
+    },
+    {
       "src": "/(.*)",
       "dest": "/Frontend/$1"
     }
   ]
 }
+

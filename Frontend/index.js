@@ -123,10 +123,31 @@ voiceButtons.forEach(btn => {
 });
 
 
+// Search Functionality
+const searchInput = document.getElementById('searchInput');
+const searchBtn = document.getElementById('searchBtn');
+
+function handleSearch() {
+  const query = searchInput ? searchInput.value.trim() : '';
+  if (!query) return;
+  const fallbackImage = 'https://images.unsplash.com/photo-1488646953014-85cb44e25828?auto=format&fit=crop&w=800&q=80';
+  selectDestination(query, fallbackImage, null);
+}
+
+if (searchBtn) {
+  searchBtn.addEventListener('click', handleSearch);
+}
+if (searchInput) {
+  searchInput.addEventListener('keydown', (e) => {
+    if (e.key === 'Enter') handleSearch();
+  });
+}
+
+
 // Dynamic API URL for Local & Production Deployment
 const BACKEND_URL = (window.location.hostname === '127.0.0.1' || window.location.hostname === 'localhost')
   ? "http://127.0.0.1:5000"
-  : (window.BACKEND_API_URL || "https://ai-travel-guide-interactive-multilingual.onrender.com");
+  : (window.BACKEND_API_URL || "");
 
 const GENERATE_AUDIO_GUIDE_API_URL = `${BACKEND_URL}/generate-audio-guide`;
 
@@ -150,7 +171,10 @@ generateButton.addEventListener('click', async () => {
       })
     });
 
-    if (!response.ok) throw new Error('Generation failed');
+    if (!response.ok) {
+      const errData = await response.json().catch(() => ({}));
+      throw new Error(errData.error || 'Generation failed');
+    }
 
     const data = await response.json();
 
@@ -170,14 +194,17 @@ generateButton.addEventListener('click', async () => {
 
   } catch (err) {
     console.error(err);
-    alert('Generation failed. Please check your connection.');
+    alert(err.message || 'Generation failed. Please check your connection.');
     generateButton.textContent = 'Generate Audio Guide';
     generateButton.disabled = false;
   }
 });
 
 // Transcript Toggle
-transcriptToggle.addEventListener('click', () => {
-  transcriptContent.classList.toggle('hidden');
-  transcriptArrow.classList.toggle('rotate-180');
-});
+if (transcriptToggle) {
+  transcriptToggle.addEventListener('click', () => {
+    transcriptContent.classList.toggle('hidden');
+    transcriptArrow.classList.toggle('rotate-180');
+  });
+}
+
