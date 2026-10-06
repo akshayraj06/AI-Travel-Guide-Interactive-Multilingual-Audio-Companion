@@ -1,5 +1,6 @@
 # 🌍 AI Travel Guide — Interactive Multilingual Audio Companion
 
+[![Vercel Deployment](https://img.shields.io/badge/Vercel-Live%20Demo-000000?style=for-the-badge&logo=vercel&logoColor=white)](https://ai-travel-guide-interactive-multili.vercel.app/)
 [![Python](https://img.shields.io/badge/Python-3.9%2B-3776AB?style=for-the-badge&logo=python&logoColor=white)](https://www.python.org/)
 [![Flask](https://img.shields.io/badge/Flask-3.0%2B-000000?style=for-the-badge&logo=flask&logoColor=white)](https://flask.palletsprojects.com/)
 [![Gemini API](https://img.shields.io/badge/Google%20Gemini-3.1%20Flash--Lite-8E75B2?style=for-the-badge&logo=googlecloud&logoColor=white)](https://ai.google.dev/)
@@ -8,11 +9,14 @@
 
 > An AI-powered, interactive audio tour guide app that generates rich historical commentary and natural multilingual speech synthesis for iconic world destinations in real time.
 
+🔗 **Live Demo**: [https://ai-travel-guide-interactive-multili.vercel.app/](https://ai-travel-guide-interactive-multili.vercel.app/)
+
 ---
 
 ## 📸 Overview & Key Features
 
 **AI Travel Guide** transforms traditional tourist exploration into a dynamic, personalized audio tour experience. Select any iconic landmark or search for custom destinations to receive real-time AI-generated historical insights paired with high-fidelity speech streaming.
+
 
 ### 🌟 Core Highlights
 
@@ -107,8 +111,8 @@ Ensure you have the following installed on your machine:
 
 ### 2. Clone & Environment Setup
 ```bash
-git clone https://github.com/your-username/travel-guide.git
-cd travel-guide
+git clone https://github.com/akshayraj06/AI-Travel-Guide-Interactive-Multilingual-Audio-Companion.git
+cd AI-Travel-Guide-Interactive-Multilingual-Audio-Companion
 ```
 
 ### 3. Backend Setup
