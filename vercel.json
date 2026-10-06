@@ -1,32 +1,33 @@
 {
-  "version": 2,
-  "builds": [
-    {
-      "src": "api/index.py",
-      "use": "@vercel/python"
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "services": {
+    "app": {
+      "root": ".",
+      "framework": "flask"
     },
-    {
-      "src": "Frontend/**",
-      "use": "@vercel/static"
+    "backend": {
+      "root": "Backend",
+      "framework": "flask"
     }
-  ],
-  "routes": [
+  },
+  "rewrites": [
     {
-      "src": "/generate-audio-guide",
-      "dest": "/api/index.py"
+      "source": "/generate-audio-guide",
+      "destination": {
+        "service": "backend"
+      }
     },
     {
-      "src": "/api/(.*)",
-      "dest": "/api/index.py"
+      "source": "/api/(.*)",
+      "destination": {
+        "service": "backend"
+      }
     },
     {
-      "src": "/",
-      "dest": "/Frontend/index.html"
-    },
-    {
-      "src": "/(.*)",
-      "dest": "/Frontend/$1"
+      "source": "/(.*)",
+      "destination": {
+        "service": "app"
+      }
     }
   ]
 }
-
